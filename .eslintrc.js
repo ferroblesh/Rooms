@@ -12,7 +12,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-param-reassign': ['error', {
       props: true,
-      ignorePropertyModificationFor: [
+      ignorePropertyModificationsFor: [
         'state', // for vuex state
       ]
     }]

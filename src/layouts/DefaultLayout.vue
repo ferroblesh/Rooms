@@ -68,7 +68,7 @@ import HeaderPartial from '@/partials/HeaderPartial.vue';
 import FooterPartial from '@/partials/FooterPartial.vue';
 import Modal from '@/components/Modal.vue';
 import ToogleInput from '@/components/ToggleInput.vue';
-import {mapGetters} from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'DefaultLayout',
@@ -96,8 +96,8 @@ export default {
     closeModal() {
       this.$store.dispatch('TOGGLE_MODAL_STATE',{
         name: 'login',
-        value: false
-      })
+        value: false,
+      });
     }
   }
 };
