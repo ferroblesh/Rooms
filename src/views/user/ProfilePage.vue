@@ -17,7 +17,7 @@
           <aside class="profile__aside px-3">
             <div class="profile__card">
               <div class="profile__thumbnail">
-                <img class="profile__image w-full" src="https://avatars1.githubusercontent.com/u/9919?s=500&v=4">
+                <img class="profile__image w-full" :src="profile.avatar">
               </div>
             </div>
           </aside>
