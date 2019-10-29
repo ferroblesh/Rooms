@@ -21,18 +21,18 @@
                 <form >
                     <div class="mb-4">
                         <label class="input__label">Title</label>
-                        <input class="input__field" type="text" placeholder="Bruce Wayne">
+                        <input v-model="publication.title" class="input__field" type="text" placeholder="Bruce Wayne">
                     </div>
                     <div class="mb-4">
                         <label class="input__label">Description</label>
-                        <textarea class="input__field" type="text" placeholder="BW"></textarea>
+                        <textarea v-model="publication.description" class="input__field" type="text" placeholder="BW"></textarea>
                     </div>
                     <div class="mb-4">
                         <label class="input__label">Featured Image</label>
-                        <textarea class="input__field" type="text" placeholder="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2"></textarea>
+                        <textarea v-model="publication.featuredImage" class="input__field" type="text" placeholder="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2"></textarea>
                     </div>
                     <div class="mb-4 text-right">
-                        <button class="w-full bg-yellow-dark text-yellow-darker font-smibold py-3 px6 rounded">Publish</button>
+                        <button @click.prevent="save" class="w-full bg-yellow-dark text-yellow-darker font-smibold py-3 px6 rounded">Publish</button>
                     </div>
                 </form>
             </div>
@@ -46,7 +46,28 @@ import PageLayout from '@/layouts/PageLayout.vue';
 
 export default {
     name: 'CreateHousePage',
-    component: {
+    data() {
+        return {
+            publication: {
+                title: '',
+                description: '',
+                featuredImage: '',
+            },
+        };
+    },
+    methods: {
+        save() {
+            const {title, description, featuredImage} = this.publication;
+            const room = {
+                title,
+                description,
+                featuredImage,
+                publishedAt: Date.now()
+            };
+            this.$store.dispatch('CREATE_ROOM',room);
+        }
+    },
+    components: {
         PageLayout,
     },
 };
